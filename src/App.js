@@ -1,6 +1,5 @@
 // src/App.js
 import { useState } from "react";
-import "./styles/globals.css"; // Assuming globals.css is in src/styles/
 
 // Import Data
 import { properties as allProperties } from "./data/propertiesData";
