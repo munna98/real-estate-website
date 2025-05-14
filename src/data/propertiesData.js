@@ -1,0 +1,87 @@
+// src/data/propertiesData.js
+export const properties = [
+  {
+    id: 1,
+    title: "Modern Apartment in Downtown",
+    price: 450000,
+    type: "apartment",
+    status: "sale",
+    city: "New York",
+    bedrooms: 2,
+    bathrooms: 2,
+    area: 1200,
+    address: "123 Downtown Ave, New York, NY",
+    description: "Luxury apartment with amazing views of the city skyline. Features high-end finishes, open floor plan, and modern amenities. The building offers 24/7 security, a fitness center, and a rooftop garden.",
+    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+  },
+  {
+    id: 2,
+    title: "Family House with Garden",
+    price: 750000,
+    type: "house",
+    status: "sale",
+    city: "Boston",
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 2400,
+    address: "456 Family Lane, Boston, MA",
+    description: "Spacious family home in a quiet neighborhood. Features a large backyard, renovated kitchen, and finished basement. Close to schools, parks, and shopping centers.",
+    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+  },
+  {
+    id: 3,
+    title: "Studio Apartment for Rent",
+    price: 1800,
+    type: "apartment",
+    status: "rent",
+    city: "Chicago",
+    bedrooms: 1,
+    bathrooms: 1,
+    area: 650,
+    address: "789 Urban St, Chicago, IL",
+    description: "Cozy studio apartment in the heart of the city. Fully furnished with modern appliances and utilities included. Walking distance to public transportation and restaurants.",
+    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+  },
+  {
+    id: 4,
+    title: "Waterfront Condo",
+    price: 920000,
+    type: "condo",
+    status: "sale",
+    city: "Miami",
+    bedrooms: 3,
+    bathrooms: 2,
+    area: 1800,
+    address: "101 Ocean Dr, Miami, FL",
+    description: "Stunning waterfront condo with panoramic ocean views. Features a private balcony, updated kitchen, and master suite. Building amenities include a pool, spa, and private beach access.",
+    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+  },
+  {
+    id: 5,
+    title: "Townhouse for Rent",
+    price: 2500,
+    type: "townhouse",
+    status: "rent",
+    city: "Seattle",
+    bedrooms: 3,
+    bathrooms: 2.5,
+    area: 1600,
+    address: "222 Hillside Rd, Seattle, WA",
+    description: "Three-story townhouse with attached garage and private rooftop deck. Includes hardwood floors, stainless steel appliances, and in-unit laundry. Close to downtown and tech campuses.",
+    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+  },
+  {
+    id: 6,
+    title: "Historic Victorian House",
+    price: 1200000,
+    type: "house",
+    status: "sale",
+    city: "San Francisco",
+    bedrooms: 5,
+    bathrooms: 3,
+    area: 3200,
+    address: "333 Heritage St, San Francisco, CA",
+    description: "Beautifully preserved Victorian home with original architectural details. Features high ceilings, bay windows, and a renovated kitchen. Located in a prime neighborhood with excellent schools.",
+    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+  }
+];
