@@ -1,12 +1,13 @@
 // src/pages/PropertiesPage.js
 import React from 'react';
 import { MapPin, DollarSign, Filter } from 'lucide-react';
+import Link from 'next/link'; // Import Link from next/link
 
 const PropertiesPage = ({
   filteredProperties,
   activeFilters,
   setActiveFilters,
-  viewPropertyDetails,
+  // viewPropertyDetails, // This prop is no longer needed for navigation here
   formatPrice
 }) => (
   <div className="container mx-auto px-4 py-12">
@@ -101,11 +102,12 @@ const PropertiesPage = ({
                 <span>{property.bathrooms} Baths</span>
                 <span>{property.area} sq ft</span>
               </div>
-              <button
-                className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
-                onClick={() => viewPropertyDetails(property)}>
-                View Details
-              </button>
+              {/* Use Link to navigate to the dynamic property page */}
+              <Link href={`/properties/${property.id}`} legacyBehavior>
+                <a className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 block text-center">
+                  View Details
+                </a>
+              </Link>
             </div>
           </div>
         ))
