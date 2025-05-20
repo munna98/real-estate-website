@@ -11,8 +11,9 @@ export const properties = [
     bathrooms: 2,
     area: 1200,
     address: "123 Downtown Ave, New York, NY",
-    description: "Luxury apartment with amazing views of the city skyline. Features high-end finishes, open floor plan, and modern amenities. The building offers 24/7 security, a fitness center, and a rooftop garden.",
-    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+    description:
+      "Luxury apartment with amazing views of the city skyline. Features high-end finishes, open floor plan, and modern amenities. The building offers 24/7 security, a fitness center, and a rooftop garden.",
+    images: ["/images/apartment1.jpeg"],
   },
   {
     id: 2,
@@ -25,8 +26,9 @@ export const properties = [
     bathrooms: 3,
     area: 2400,
     address: "456 Family Lane, Boston, MA",
-    description: "Spacious family home in a quiet neighborhood. Features a large backyard, renovated kitchen, and finished basement. Close to schools, parks, and shopping centers.",
-    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+    description:
+      "Spacious family home in a quiet neighborhood. Features a large backyard, renovated kitchen, and finished basement. Close to schools, parks, and shopping centers.",
+    images: ["/images/apartment2.jpeg"],
   },
   {
     id: 3,
@@ -39,8 +41,9 @@ export const properties = [
     bathrooms: 1,
     area: 650,
     address: "789 Urban St, Chicago, IL",
-    description: "Cozy studio apartment in the heart of the city. Fully furnished with modern appliances and utilities included. Walking distance to public transportation and restaurants.",
-    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+    description:
+      "Cozy studio apartment in the heart of the city. Fully furnished with modern appliances and utilities included. Walking distance to public transportation and restaurants.",
+    images: ["/images/apartment3.jpeg"],
   },
   {
     id: 4,
@@ -53,8 +56,9 @@ export const properties = [
     bathrooms: 2,
     area: 1800,
     address: "101 Ocean Dr, Miami, FL",
-    description: "Stunning waterfront condo with panoramic ocean views. Features a private balcony, updated kitchen, and master suite. Building amenities include a pool, spa, and private beach access.",
-    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+    description:
+      "Stunning waterfront condo with panoramic ocean views. Features a private balcony, updated kitchen, and master suite. Building amenities include a pool, spa, and private beach access.",
+    images: ["/images/apartment4.jpeg"],
   },
   {
     id: 5,
@@ -67,8 +71,9 @@ export const properties = [
     bathrooms: 2.5,
     area: 1600,
     address: "222 Hillside Rd, Seattle, WA",
-    description: "Three-story townhouse with attached garage and private rooftop deck. Includes hardwood floors, stainless steel appliances, and in-unit laundry. Close to downtown and tech campuses.",
-    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
+    description:
+      "Three-story townhouse with attached garage and private rooftop deck. Includes hardwood floors, stainless steel appliances, and in-unit laundry. Close to downtown and tech campuses.",
+    images: ["/images/apartment5.jpeg"],
   },
   {
     id: 6,
@@ -81,7 +86,8 @@ export const properties = [
     bathrooms: 3,
     area: 3200,
     address: "333 Heritage St, San Francisco, CA",
-    description: "Beautifully preserved Victorian home with original architectural details. Features high ceilings, bay windows, and a renovated kitchen. Located in a prime neighborhood with excellent schools.",
-    images: ["/api/placeholder/800/500", "/api/placeholder/800/500"]
-  }
+    description:
+      "Beautifully preserved Victorian home with original architectural details. Features high ceilings, bay windows, and a renovated kitchen. Located in a prime neighborhood with excellent schools.",
+    images: ["/images/apartment6.jpeg"],
+  },
 ];

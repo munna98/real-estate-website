@@ -19,7 +19,7 @@ const AboutPage = () => (
       </div>
       <div className="md:w-1/2">
         <img
-          src="/api/placeholder/600/400"
+          src="/images/about1.jpg"
           alt="DreamHomes Realty Office"
           className="rounded-lg shadow-lg"
         />
