@@ -4,11 +4,12 @@ import { MapPin, DollarSign, Home, User, Search, ArrowRight } from "lucide-react
 import Link from "next/link";
 
 const HomePage = ({
-  properties,
+  properties = [], // Add default empty array
   setActiveTab,
-  formatPrice,
+  formatPrice = (price) => price, // Add default for formatPrice
 }) => {
-  const featuredProperties = properties.slice(0, 3);
+  // Add safety check before slicing
+  const featuredProperties = properties && properties.length ? properties.slice(0, 3) : [];
 
   return (
     <div>
@@ -28,7 +29,7 @@ const HomePage = ({
             </p>
             <button
               className="bg-white text-blue-700 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-100 hover:scale-105 transition-all duration-300 flex items-center justify-center mx-auto"
-              onClick={() => setActiveTab("properties")}
+              onClick={() => setActiveTab && setActiveTab("properties")}
             >
               Browse All Properties <ArrowRight className="ml-2" size={20} />
             </button>
@@ -43,49 +44,55 @@ const HomePage = ({
             Featured Properties
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProperties.map((property) => (
-              <div
-                key={property.id}
-                className="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 relative group"
-              >
-                <img
-                  src={property.images[0]}
-                  alt={property.title}
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2 truncate">{property.title}</h3>
-                  <div className="flex items-center text-gray-600 mb-2">
-                    <MapPin size={18} className="text-blue-500 mr-2" />
-                    <span>{property.address}, {property.city}</span>
+            {featuredProperties.length > 0 ? (
+              featuredProperties.map((property) => (
+                <div
+                  key={property.id}
+                  className="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 relative group"
+                >
+                  <img
+                    src={property.images && property.images[0] ? property.images[0] : '/images/placeholder.jpg'}
+                    alt={property.title || 'Property'}
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2 truncate">{property.title}</h3>
+                    <div className="flex items-center text-gray-600 mb-2">
+                      <MapPin size={18} className="text-blue-500 mr-2" />
+                      <span>{property.address}, {property.city}</span>
+                    </div>
+                    <div className="flex items-center mb-4">
+                      <DollarSign size={20} className="text-green-600 mr-2" />
+                      <span className="text-2xl font-extrabold text-gray-900">
+                        {formatPrice(property.price, property.status)}
+                      </span>
+                      <span className="ml-4 text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
+                        For {property.status === "sale" ? "Sale" : "Rent"}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-gray-700 text-sm mb-6">
+                      <span className="flex items-center"><Home size={16} className="mr-1" /> {property.bedrooms} Beds</span>
+                      <span className="flex items-center"><Home size={16} className="mr-1" /> {property.bathrooms} Baths</span>
+                      <span className="flex items-center"><Home size={16} className="mr-1" /> {property.area} sq ft</span>
+                    </div>
+                    <Link href={`/properties/${property.id}`} legacyBehavior>
+                      <a className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 block text-center opacity-90 group-hover:opacity-100">
+                        View Details <ArrowRight size={16} className="inline-block ml-2" />
+                      </a>
+                    </Link>
                   </div>
-                  <div className="flex items-center mb-4">
-                    <DollarSign size={20} className="text-green-600 mr-2" />
-                    <span className="text-2xl font-extrabold text-gray-900">
-                      {formatPrice(property.price, property.status)}
-                    </span>
-                    <span className="ml-4 text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
-                      For {property.status === "sale" ? "Sale" : "Rent"}
-                    </span>
-                  </div>
-                  <div className="flex justify-between text-gray-700 text-sm mb-6">
-                    <span className="flex items-center"><Home size={16} className="mr-1" /> {property.bedrooms} Beds</span>
-                    <span className="flex items-center"><Home size={16} className="mr-1" /> {property.bathrooms} Baths</span>
-                    <span className="flex items-center"><Home size={16} className="mr-1" /> {property.area} sq ft</span> {/* Use appropriate icon if available for area */}
-                  </div>
-                  <Link href={`/properties/${property.id}`} legacyBehavior>
-                    <a className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 block text-center opacity-90 group-hover:opacity-100">
-                      View Details <ArrowRight size={16} className="inline-block ml-2" />
-                    </a>
-                  </Link>
                 </div>
+              ))
+            ) : (
+              <div className="col-span-1 md:col-span-3 text-center py-12">
+                <p className="text-gray-600">No featured properties available at the moment.</p>
               </div>
-            ))}
+            )}
           </div>
           <div className="text-center mt-12">
             <button
               className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 hover:scale-105 transition-all duration-300 flex items-center justify-center mx-auto"
-              onClick={() => setActiveTab("properties")}
+              onClick={() => setActiveTab && setActiveTab("properties")}
             >
               Explore All Listings <ArrowRight className="ml-2" size={20} />
             </button>
@@ -99,7 +106,7 @@ const HomePage = ({
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <img
-                src="/images/about1.jpg" // Ensure this image exists in your public/images folder
+                src="/images/about1.jpg"
                 alt="About DreamHomes Realty"
                 className="rounded-xl shadow-2xl object-cover w-full h-auto transform hover:rotate-1 transition-transform duration-300"
               />
@@ -114,7 +121,7 @@ const HomePage = ({
               </p>
               <button
                 className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 hover:scale-105 transition-all duration-300 flex items-center justify-center md:inline-flex mx-auto"
-                onClick={() => setActiveTab("about")}
+                onClick={() => setActiveTab && setActiveTab("about")}
               >
                 Learn More About Us <ArrowRight className="ml-2" size={20} />
               </button>
@@ -170,7 +177,7 @@ const HomePage = ({
           </p>
           <button
             className="bg-white text-blue-700 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-100 hover:scale-105 transition-all duration-300 flex items-center justify-center mx-auto"
-            onClick={() => setActiveTab("contact")}
+            onClick={() => setActiveTab && setActiveTab("contact")}
           >
             Get In Touch Today <ArrowRight className="ml-2" size={20} />
           </button>
