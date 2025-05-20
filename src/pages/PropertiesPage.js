@@ -1,14 +1,13 @@
 // src/pages/PropertiesPage.js
 import React from 'react';
 import { MapPin, DollarSign, Filter } from 'lucide-react';
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 
 const PropertiesPage = ({
-  filteredProperties,
-  activeFilters,
-  setActiveFilters,
-  // viewPropertyDetails, // This prop is no longer needed for navigation here
-  formatPrice
+  filteredProperties = [], // Add default value
+  activeFilters = { type: 'all', status: 'all', priceRange: 'all', city: 'all' }, // Add default value
+  setActiveFilters = () => {}, // Add default no-op function
+  formatPrice = (price) => price // Add default formatter
 }) => (
   <div className="container mx-auto px-4 py-12">
     <h1 className="text-3xl font-bold mb-8 text-center">Browse Properties</h1>
@@ -83,7 +82,11 @@ const PropertiesPage = ({
       {filteredProperties.length > 0 ? (
         filteredProperties.map(property => (
           <div key={property.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img src={property.images[0]} alt={property.title} className="w-full h-48 object-cover" />
+            <img 
+              src={property.images && property.images.length > 0 ? property.images[0] : '/images/placeholder.jpg'} 
+              alt={property.title || 'Property'} 
+              className="w-full h-48 object-cover" 
+            />
             <div className="p-4">
               <h3 className="text-xl font-bold mb-2">{property.title}</h3>
               <div className="flex items-center mb-2">
